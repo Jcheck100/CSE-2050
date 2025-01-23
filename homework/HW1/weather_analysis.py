@@ -78,7 +78,7 @@ def find_highest_temperature(weather_data):
         if highest_temp is None or i[1] > highest_temp:
             highest_temp = i[1]
             date = i[0]
-    return float(highest_temp), str(date)
+    return str(date), float(highest_temp)
 
 def find_lowest_temperature(weather_data):
     """
@@ -95,7 +95,7 @@ def find_lowest_temperature(weather_data):
         if lowest_temp is None or i[1] < lowest_temp:
             lowest_temp = i[1]
             date = i[0]
-    return float(lowest_temp), str(date)
+    return str(date), float(lowest_temp)
 
 def find_day_with_most_rainfall(weather_data):
     """
@@ -111,6 +111,7 @@ def find_day_with_most_rainfall(weather_data):
     for i in weather_data:
         if most_rain == None or i[2] > most_rain:
             date = i[0]
-    return date
+            most_rain = i[2]
+    return str(date), float(most_rain)
 
 
