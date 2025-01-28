@@ -12,8 +12,6 @@
 #    - The docstring should explain the function’s purpose, parameters, and expected output.
 #    - Proper documentation improves code readability and helps with debugging and maintenance.
 
-#Use Raw string so that backslashes can be used in filepath
-
 def read_weather_data(filepath: str):
     """
     Opens and reads file into a a list of tuples

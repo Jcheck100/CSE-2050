@@ -1,5 +1,6 @@
 import weather_analysis as wa
 
+#Use Raw string so that backslashes can be used in filepath
 filepath = r"C:\Users\jchec\OneDrive\Documents\College\Sem2 24-25\CSE-2050\homework\HW1\weather_data.txt"
 def weather_analyze(filepath):
     """
