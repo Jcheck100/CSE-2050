@@ -15,14 +15,25 @@ class LinkedList():
 
     def add_first(self, item):
         if self._head == None:
-            self._head == item
-            self._head.link == None
+            self._head = item
+            self._head.link = None
+            self._tail.link = None
+            self._len += 1
         else:
-            
-        pass
+            item.link = self._head
+            self._head = item
+            self._len += 1
 
-    def add_last(self):
-        pass
+
+    def add_last(self, item):
+        if self._head == None:
+            self._head = item
+            self._head.link = None
+            self._tail.link = None
+            self._len += 1
+        else:
+            pass
+        
 
     def remove_last(self):
         pass
@@ -30,3 +41,7 @@ class LinkedList():
     def remove_first(self):
         pass
 
+L1 = LinkedList(4)
+L1.add_first(1)
+L1.add_first(2)
+L1.add_first(3)
