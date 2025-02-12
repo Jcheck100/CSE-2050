@@ -40,22 +40,32 @@ OOP and Testing:
 
 """
 
+
 class Car:
-    def __init__(self, year, make, model, is_running = False):
+    def __init__(self, year, make, model, is_running=False):
         self.year = year
         self.make = make
         self.model = model
         self.is_running = is_running
+        self._num_starts = 0
+
+    def _check_starter_health(self):
+        if self._num_starts <= 5000:
+            return True
 
     def start(self):
-        if self.is_running is False:
-            self.is_running = True
-            return f"The {self.make} {self.model} is now running!"
+        if self.is_running == False:
+            if self._check_starter_health():
+                self._num_starts += 1
+                self.is_running = True
+                return f"The {self.make} {self.model} is now running!"
+            else:
+                return f"Won't turn over"
         else:
             return f"The {self.make} {self.model} is already running!"
 
     def stop(self):
-        if self.is_running is True:
+        if self.is_running == True:
             self.is_running = False
             return f"The {self.make} {self.model} has stopped!"
         else:
@@ -64,15 +74,27 @@ class Car:
     def __str__(self):
         return f"Year: {self.year}, Make: {self.make}, Model: {self.model}"
 
-class electric_Car(Car): #Inheritance, electric_Car gets all the methods and attributes of Car
-    is_Electric = True
-    def __str__(self):
-        return f"Year: {self.year}, Make: {self.make}, Model: {self.model}, Electric: {self.is_Electric}"
 
+class electric_Car(Car):  # Inheritance, electric_Car gets all the methods and attributes of Car
+    def __init__(self, year, make, model):
+        super().__init__(year, make, model)
+        self._battery_level = 100
 
+    def drive(self, miles):
+        if self._check_charge(miles):
+            print(f"Driving {miles} miles")
+        else:
+            print("Not enough charge remaing")
 
+    def recharge(self):
+        self._battery_level = 100
 
+    def _check_charge(self, miles):
+        if miles <= self._battery_level * 2:
+            return True
+        else:
+            return False
+    
+my_car = electric_Car(2014, "Mazda", 6)
 
-
-
-
+my_car.drive(500)
