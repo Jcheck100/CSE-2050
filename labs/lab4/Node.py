@@ -4,4 +4,4 @@ class Node:
         self.link = link
         
     def __repr__(self):
-        pass
+        return f"Node({self.item})"
