@@ -44,7 +44,6 @@ class LinkedList:
         else:
             self._tail.link = new_node
             self._tail = new_node
-            pass
         self._len += 1
 
     def remove_last(self):
@@ -83,3 +82,5 @@ class LinkedList:
 
         self._len -= 1
         return removed_item
+
+

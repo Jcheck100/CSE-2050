@@ -1,5 +1,5 @@
 import unittest
-from labs.lab4.linkedlist import LinkedList
+from LinkedList import LinkedList
 from Node import Node
 
 
