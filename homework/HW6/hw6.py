@@ -1,11 +1,42 @@
 def bubble_sort(matrix):
-    """TODO"""
+    L = matrix[0]
+    n = len(L)
+    swaps = 0
+    unsorted = True
+    while unsorted:
+        unsorted = False
+        for i in range(n-1):
+            if L[i] > L[i+1]:
+                L[i], L[i+1] = L[i+1], L[i]
+                swaps += 1
+                unsorted = True
+    return L, swaps
 
 def insertion_sort(matrix):
-    """TODO"""
+    L = matrix[1]
+    n = len(L)
+    swaps = 0
+    for i in range(n):
+        j = i
+        while j > 0 and L[j-1] > L[j]:
+            L[j-1], L[j] = L[j], L[j-1]
+            swaps += 1
+            j -= 1
+    return L, swaps
 
 def selection_sort(matrix):
-    """TODO"""
+    L = matrix[2]
+    n = len(L)
+    swaps = 0
+    for i in range(n):
+        min_index = i
+        for j in range(i, n):
+            if L[j] < L[min_index]:
+                min_index = j
+        if min_index != i:
+            L[i], L[min_index] = L[min_index], L[i]
+            swaps += 1
+    return L, swaps
 
 def merge(first_row, second_row, third_row):
     """
@@ -48,3 +79,10 @@ def merge(first_row, second_row, third_row):
             k += 1
 
     return sorted_list
+
+print(bubble_sort([[12,55,78,54,65]]))
+
+print(insertion_sort([[],[12,55,78,54,65]]))
+
+print(selection_sort([[],[],[12,55,78,54,65]]))
+
